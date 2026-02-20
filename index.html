@@ -1,0 +1,52 @@
+<p>Heloo again!</p>
+<p>Heloo again!</p>
+<p>Heloo again!</p>
+
+<style>
+  .circles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+  }
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+</style>
+
+<div class="circles-container">
+  <div class="circle" style="background-color: #e74c3c"></div>
+  <div class="circle" style="background-color: #3498db"></div>
+  <div class="circle" style="background-color: #2ecc71"></div>
+  <div class="circle" style="background-color: #f1c40f"></div>
+  <div class="circle" style="background-color: #e74c3c"></div>
+  <div class="circle" style="background-color: #3498db"></div>
+  <div class="circle" style="background-color: #2ecc71"></div>
+  <div class="circle" style="background-color: #f1c40f"></div>
+  <div class="circle" style="background-color: #e74c3c"></div>
+  <div class="circle" style="background-color: #3498db"></div>
+</div>
+
+<script>
+  const circles = document.querySelectorAll(".circle");
+  circles.forEach((circle) => {
+    circle.style.position = "relative";
+  });
+
+  let offset = 0;
+  const speed = 1;
+  const distance = 20;
+
+  function animate() {
+    offset -= speed;
+    if (offset <= -distance) offset = 0;
+    circles.forEach((circle) => {
+      circle.style.left = offset + "px";
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
